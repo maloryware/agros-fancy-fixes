@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "agros-fancy-fixes",
+	"version": "${version}",
+	"name": "Agro's Fancy Fixes",
+	"description": "Applies a handful of fixes for Agrocord Minecraft Modpack.",
+	"authors": [
+		"maloryware"
+	],
+	"contact": {
+		"homepage": "https://discord.gg/V8rn3rk2yk",
+		"sources": "https://github.com/maloryware/agros-fancy-fixes"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/agros-fancy-fixes/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.maloryware.agros_fancy_fixes.AgrosFancyFixes"
+		],
+		"client": [
+			"io.github.maloryware.agros_fancy_fixes.AgrosFancyFixesClient"
+		],
+		"fabric-datagen": [
+			"io.github.maloryware.agros_fancy_fixes.AgrosFancyFixesDataGenerator"
+		]
+	},
+	"mixins": [
+		"agros-fancy-fixes.mixins.json",
+		{
+			"config": "agros-fancy-fixes.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
