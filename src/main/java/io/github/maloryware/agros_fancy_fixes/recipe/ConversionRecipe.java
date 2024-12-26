@@ -1,8 +1,9 @@
 package io.github.maloryware.agros_fancy_fixes.recipe;
 
 import io.github.maloryware.agros_fancy_fixes.AgrosFancyFixes;
+import io.github.maloryware.agros_fancy_fixes.config.AFFConfig;
 import io.github.maloryware.agros_fancy_fixes.enchantment.NovaEnchantments;
-import io.github.maloryware.agros_fancy_fixes.util.Utils;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.*;
@@ -12,11 +13,11 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
+@SuppressWarnings({"DataFlowIssue", "OptionalGetWithoutIsPresent"})
 public class ConversionRecipe extends SpecialCraftingRecipe {
 
-    // stupid bullshit. stupid. never let me mod again
-    protected static final RecipeSerializer<ConversionRecipe> SERIALIZER = new SpecialRecipeSerializer<>(ConversionRecipe::new);
-    protected static final Identifier CONVERSION_RECIPE = AgrosFancyFixes.id("conversion_recipe");
+    public static final RecipeSerializer<ConversionRecipe> SERIALIZER = new SpecialRecipeSerializer<>(ConversionRecipe::new);
+    public static final Identifier CONVERSION_RECIPE = AgrosFancyFixes.id("conversion_recipe");
 
 
     public ConversionRecipe(CraftingRecipeCategory category) {
@@ -24,11 +25,26 @@ public class ConversionRecipe extends SpecialCraftingRecipe {
     }
 
     @Override
+    public RecipeSerializer<?> getSerializer() {
+        return SERIALIZER;
+    }
+
+    @Override
     public boolean matches(CraftingRecipeInput input, World world) {
 
-        return input.getSize() == 1 && input.getStacks().contains(Items.ENCHANTED_BOOK.getDefaultStack());
+        ItemStack stack = input.getStackInSlot(0);
+        if(stack.get(DataComponentTypes.STORED_ENCHANTMENTS) == null) return false;
+        var enchantlist = stack.get(DataComponentTypes.STORED_ENCHANTMENTS).getEnchantments();
+        if(enchantlist.size() != 1) return false;
 
-        // check for:
+        var enchant = enchantlist.stream().findFirst().get().getKey();
+
+        return input.getSize() == 1
+                && stack.isOf(Items.ENCHANTED_BOOK)
+                && enchantlist.size() == 1
+                && NovaEnchantments.ENCHANTMENT_TO_ESSENCE.containsKey(enchant.get());
+
+        // check for:A
         // - takes up only one slot
         // - any number of enchanted books of the same enchantment
 
@@ -42,22 +58,31 @@ public class ConversionRecipe extends SpecialCraftingRecipe {
 
         ItemStack stack = input.getStackInSlot(0);
 
-        if (stack.isOf(Items.ENCHANTED_BOOK)) return ItemStack.EMPTY;
+        if (!stack.isOf(Items.ENCHANTED_BOOK)) return ItemStack.EMPTY;
+        // holy method train
 
-        // TODO: figure this out. god.
-        /*
-        for(var entry : NovaEnchantments.ENCHANTMENTS){
-            ItemStack stack2 = Utils.getEnchantedBook(entry, lookup);
-            if(stack.equals(stack2)){
-                return ItemStack.EMPTY
+        var enchant = stack.get(DataComponentTypes.STORED_ENCHANTMENTS).getEnchantments().stream().findFirst().get();
+        int level = stack.get(DataComponentTypes.STORED_ENCHANTMENTS).getLevel(enchant);
+
+        var enchantKey = enchant.getKey().get();
+        ItemStack stackToReturn = NovaEnchantments.ENCHANTMENT_TO_ESSENCE.get(enchantKey).getDefaultStack();
+
+        switch(AFFConfig.enchant_conversion){
+            case DISABLED -> stackToReturn = ItemStack.EMPTY;
+
+            case FIXED -> stackToReturn.setCount(1);
+            case SCALING_STATIC -> stackToReturn.setCount(level);
+            case SCALING_DYNAMIC -> {
+                if (level > 2) {
+                    stackToReturn.setCount(level % 2 == 0 ? (level / 2) : (level - 1) / 2 + 1);
+                } else {
+                    stackToReturn.setCount(1);
+                }
             }
         }
 
-         */
+        return stackToReturn;
 
-
-        // should return a *copy* of the stack displayed in getResult()
-        return null;
     }
 
     @Override
@@ -65,14 +90,6 @@ public class ConversionRecipe extends SpecialCraftingRecipe {
         // one input, should always return true?
         return true;
     }
-
-
-    @Override
-    public RecipeSerializer<?> getSerializer() {
-        return SERIALIZER;
-    }
-
-
 
 
 }

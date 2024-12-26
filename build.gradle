@@ -25,6 +25,8 @@ repositories {
 		}
 	}
 
+	mavenCentral()
+
 	maven { url "https://maven.shedaniel.me/" }
 	maven { url "https://maven.terraformersmc.com/releases/" }
 
@@ -73,20 +75,10 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-
+	modImplementation include ("maven.modrinth:midnightlib:${project.midnight_lib}")
 	modImplementation "maven.modrinth:better-enchanting:${project.better_enchanting}"
 	implementation "maven.modrinth:dungeons-and-taverns:${project.dungeons_and_taverns}"
-
-	/*
-	modApi("me.shedaniel.cloth:cloth-config-fabric:15.0.140") {
-		exclude(group: "net.fabricmc.fabric-api")
-	}
-	modApi "me.shedaniel:RoughlyEnoughItems-fabric:16.0.788"
-	modApi "com.terraformersmc:modmenu:11.0.3"
-
-	 */
-
+	modImplementation include("com.github.ramixin:mixson:${project.mixson}")
 }
 
 processResources {
