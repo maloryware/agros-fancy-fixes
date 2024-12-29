@@ -3,7 +3,7 @@
   "package": "io.github.maloryware.agros_fancy_fixes.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ExampleMixin"
+    "MaintenanceHandling"
   ],
   "injectors": {
     "defaultRequire": 1

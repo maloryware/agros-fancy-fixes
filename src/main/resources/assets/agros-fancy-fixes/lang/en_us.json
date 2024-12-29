@@ -6,10 +6,13 @@
 
 
   "agros-fancy-fixes.midnightconfig.category.general": "General",
+  "agros-fancy-fixes.midnightconfig.maintenance_mode": "Enable maintenance mode",
 
   "agros-fancy-fixes.midnightconfig.recipes_divider": "§l} --- Recipes ---  {",
   "agros-fancy-fixes.midnightconfig.enableDiamondRecipes": "Enable Crafting Diamond Equipment",
   "agros-fancy-fixes.midnightconfig.enableDiamondRecipes.tooltip": "§lOn§r: Default.\n\n§lOff§r: Diamond equipment can only be obtained through a Diamond Upgrade Smithing Template.",
+
+  "agros-fancy-fixes.midnightconfig.enableBetterenchRecipes": "Enable Crafting BetterEnchantment Essences",
 
 
   "agros-fancy-fixes.midnightconfig.category.mods": "Mods",
@@ -32,6 +35,8 @@
   "agros-fancy-fixes.midnightconfig.general_recipes": "§lRecipes",
   "agros-fancy-fixes.midnightconfig.general_recipes_title1": "§lEnable Crafting Diamond Equipment",
   "agros-fancy-fixes.midnightconfig.general_recipes_field1": "Whether diamond equipment should be craftable.\nIf disabled, diamond equipment can only be obtained through BetterEnchanting's Diamond Upgrade Smithing Template.",
+  "agros-fancy-fixes.midnightconfig.general_recipes_title2": "§lEnable BetterEnchantment Essences",
+  "agros-fancy-fixes.midnightconfig.general_recipes_field2": "Whether certain essences should be craftable.\n\nEssences: §lAgility, Building, Gravity, Photosynthesis, Poison Protection, Reach, Wings",
 
   "agros-fancy-fixes.midnightconfig.header_mods": "§l} --- Mods ---  {",
   "agros-fancy-fixes.midnightconfig.mods_dnt": "§lDungeons and Taverns",

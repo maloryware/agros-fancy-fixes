@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 public class LootTableModifications {
 
 
-    private static final Identifier IRON_GOLEM_LOOT_TABLE = Identifier.ofVanilla("entities/iron_golem");
+    private static final Identifier IRON_GOLEM_LOOT_TABLE = Identifier.ofVanilla("loot_table/entities/iron_golem");
 
     public static void init() {
 
@@ -28,8 +28,12 @@ public class LootTableModifications {
                 return LootTable.builder().pool(ironGolemPool).build();
             }
 
+
             return original;
         });
+
+        
+
     }
 
 }

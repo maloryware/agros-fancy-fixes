@@ -43,8 +43,12 @@ public class AFFConfig extends MidnightConfig {
     public static final String INFO = "info";
 
     /* General tab*/
+    @Server
+    @Entry(category = GENERAL) public static boolean maintenance_mode = false;
+
     @Comment(category = GENERAL, centered = true) public static Comment recipes_divider;
     @Entry(category = GENERAL) public static boolean enableDiamondRecipes = false;
+    @Entry(category = GENERAL) public static boolean enableBetterenchRecipes = false;
     @Comment(category = GENERAL, centered = true) public static Comment general_spacer;
 
     /* Mods tab  */
@@ -74,6 +78,9 @@ public class AFFConfig extends MidnightConfig {
     @Comment(category = INFO) public static Comment general_recipes_title1;
     @Comment(category = INFO) public static Comment general_recipes_field1;
     @Comment(category = INFO) public static Comment info_spacer2;
+    @Comment(category = INFO) public static Comment general_recipes_title2;
+    @Comment(category = INFO) public static Comment general_recipes_field2;
+    @Comment(category = INFO) public static Comment info_spacer3;
     @Comment(category = INFO, centered = true) public static Comment header_mods;
     @Comment(category = INFO, centered = true) public static Comment mods_dnt;
     @Comment(category = INFO) public static Comment mods_dnt_title1;
