@@ -38,13 +38,13 @@ public class RecipeModifications {
 
         for(Identifier recipe : diamondRecipes) {
             Identifier eventId = AgrosFancyFixes.id(String.format("disable_recipe.%s", recipe.getPath()));
-            Mixson.registerDeletionEvent(10000, recipe, eventId, () -> !AFFConfig.enableDiamondRecipes, false);
+            Mixson.registerDeletionEvent(10000, recipe, eventId, () -> !AFFConfig.enable_diamond_recipes, false);
 
         }
 
         for(Identifier recipe : enchantmentRecipes) {
             Identifier eventId = AgrosFancyFixes.id(String.format("disable_recipe.%s", recipe.getPath()));
-            Mixson.registerDeletionEvent(10000, recipe, eventId, () -> !AFFConfig.enableBetterenchRecipes, false);
+            Mixson.registerDeletionEvent(10000, recipe, eventId, () -> !AFFConfig.enable_better_enchantment_recipes, false);
 
         }
     }

@@ -1,6 +1,9 @@
 package io.github.maloryware.agros_fancy_fixes.config;
 
+import com.google.common.collect.Lists;
 import eu.midnightdust.lib.config.MidnightConfig;
+
+import java.util.List;
 
 // lang format: agros-fancy-fixes.midnightconfig.objectname(.tooltip)
 // enums: (...) .enum.EnumName.VALUE
@@ -40,15 +43,23 @@ public class AFFConfig extends MidnightConfig {
 
     public static final String GENERAL = "general";
     public static final String MODS = "mods";
-    public static final String INFO = "info";
 
     /* General tab*/
     @Server
     @Entry(category = GENERAL) public static boolean maintenance_mode = false;
 
+    @Server
+    @Entry(category = GENERAL) public static boolean should_prefix_commands = false;
+
+    @Server
+    @Entry(category = GENERAL) public static String maintenance_motd = "server closed for maintenance, brb!";
+
+    @Server
+    @Entry(category = GENERAL) public static List<String> allowed_maintenance_playerlist = Lists.newArrayList("");
+
     @Comment(category = GENERAL, centered = true) public static Comment recipes_divider;
-    @Entry(category = GENERAL) public static boolean enableDiamondRecipes = false;
-    @Entry(category = GENERAL) public static boolean enableBetterenchRecipes = false;
+    @Entry(category = GENERAL) public static boolean enable_diamond_recipes = false;
+    @Entry(category = GENERAL) public static boolean enable_better_enchantment_recipes = false;
     @Comment(category = GENERAL, centered = true) public static Comment general_spacer;
 
     /* Mods tab  */
@@ -65,27 +76,6 @@ public class AFFConfig extends MidnightConfig {
         SCALING_DYNAMIC
     }
     @Comment(category = MODS, centered = true) public static Comment mods_spacer;
-
-    /* Info tab */
-
-    // Title
-    @Comment(category = INFO, centered = true) public static Comment info_title;
-    @Comment(category = INFO) public static Comment info_intro;
-    // Header - Mods
-    @Comment(category = INFO, centered = true) public static Comment info_spacer;
-    @Comment(category = INFO, centered = true) public static Comment header_general;
-    @Comment(category = INFO, centered = true) public static Comment general_recipes;
-    @Comment(category = INFO) public static Comment general_recipes_title1;
-    @Comment(category = INFO) public static Comment general_recipes_field1;
-    @Comment(category = INFO) public static Comment info_spacer2;
-    @Comment(category = INFO) public static Comment general_recipes_title2;
-    @Comment(category = INFO) public static Comment general_recipes_field2;
-    @Comment(category = INFO) public static Comment info_spacer3;
-    @Comment(category = INFO, centered = true) public static Comment header_mods;
-    @Comment(category = INFO, centered = true) public static Comment mods_dnt;
-    @Comment(category = INFO) public static Comment mods_dnt_title1;
-    @Comment(category = INFO) public static Comment mods_dnt_field1;
-
 
 
 }

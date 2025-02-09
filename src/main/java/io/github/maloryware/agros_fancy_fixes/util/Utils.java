@@ -1,8 +1,11 @@
 package io.github.maloryware.agros_fancy_fixes.util;
 
 import io.github.maloryware.agros_fancy_fixes.recipe.ConversionRecipe;
+import io.github.maloryware.agros_fancy_fixes.util.events.CustomCommands;
 import io.github.maloryware.agros_fancy_fixes.util.events.LootTableModifications;
 import io.github.maloryware.agros_fancy_fixes.util.events.RecipeModifications;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
@@ -20,21 +23,23 @@ public class Utils {
         public static void init(){
             LootTableModifications.init();
             RecipeModifications.init();
+            CustomCommands.init();
 
         }
 
     }
-    /*
+    @Environment(EnvType.SERVER)
+    public static class ServerLogic {
 
-    public static class Datapacks {
-        static ModContainer mod = FabricLoader.getInstance().getModContainer(ID).get();
+        public static void init(){
 
-        public static void init() {
-            ResourceManagerHelper.registerBuiltinResourcePack(AgrosFancyFixes.id("builtin"), mod, ResourcePackActivationType.DEFAULT_ENABLED);
+
+
+
         }
-    }
 
-     */
+
+    }
 
 
 

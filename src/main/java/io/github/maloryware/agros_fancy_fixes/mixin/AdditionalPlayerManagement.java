@@ -29,13 +29,14 @@ public class AdditionalPlayerManagement extends Item {
                     value = "INVOKE",
                     target = "Lnet/minecraft/entity/player/PlayerEntity;getStackInHand(Lnet/minecraft/util/Hand;)Lnet/minecraft/item/ItemStack;")
     )
-    public void zekoSauced(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir){
-        HitResult target = user.raycast(5, 0, false);
 
-        if(target instanceof EntityHitResult result
-                && result.getEntity() instanceof PlayerEntity player
-                && player.getUuidAsString().equals("b5e80a79-4003-4f0c-88d0-f6d1d61bddbe")){
-            player.damage(player.getDamageSources().indirectMagic(user, user), 1);
+    public void zekoSauced(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir){
+        HitResult hitResult = user.raycast(5, 0, false);
+
+        if(hitResult instanceof EntityHitResult result
+                && result.getEntity() instanceof PlayerEntity target
+                && target.getName().toString().equals("ToksykGaming")){
+            target.damage(target.getDamageSources().indirectMagic(user, user), 1);
             user.setStackInHand(hand, Items.MILK_BUCKET.getDefaultStack());
         }
 

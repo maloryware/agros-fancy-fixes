@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
 
 
 public class AgrosFancyFixes implements ModInitializer {
+
 	public static final String ID = "agros-fancy-fixes";
 	public static final Logger AGROLOGGER = LoggerFactory.getLogger(ID);
 
@@ -27,31 +28,18 @@ public class AgrosFancyFixes implements ModInitializer {
 		return Identifier.of(ID, path);
 	}
 
-	/*
-	public static Identifier shortId(String path){
-
-		return Identifier.of("AFF", path);
-	}
-
-	public static String idString(String path){
-		return ID + ":" + path;
-	}
-	*/
-
 	@Override
 	public void onInitialize() {
 
 
 		AGROLOGGER.info("Hello Agro world!");
 
-		MidnightConfig.init(ID, AFFConfig.class);
-
 		NovaEnchantments.init();
 
 		Utils.Events.init();
 		//Utils.Datapacks.init();
 		Utils.Serializers.register();
-
+		MidnightConfig.init(ID, AFFConfig.class);
 
 
 

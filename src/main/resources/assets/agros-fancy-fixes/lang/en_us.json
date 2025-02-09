@@ -6,40 +6,27 @@
 
 
   "agros-fancy-fixes.midnightconfig.category.general": "General",
-  "agros-fancy-fixes.midnightconfig.maintenance_mode": "Enable maintenance mode",
 
   "agros-fancy-fixes.midnightconfig.recipes_divider": "§l} --- Recipes ---  {",
-  "agros-fancy-fixes.midnightconfig.enableDiamondRecipes": "Enable Crafting Diamond Equipment",
-  "agros-fancy-fixes.midnightconfig.enableDiamondRecipes.tooltip": "§lOn§r: Default.\n\n§lOff§r: Diamond equipment can only be obtained through a Diamond Upgrade Smithing Template.",
+  "agros-fancy-fixes.midnightconfig.enable_diamond_recipes": "Enable Crafting Diamond Equipment §l(*)",
+  "agros-fancy-fixes.midnightconfig.enable_diamond_recipes.label.tooltip": "Whether diamond equipment should be craftable.\n\nIf disabled, diamond equipment can only be obtained through BetterEnchanting's Diamond Upgrade Smithing Template.",
+  "agros-fancy-fixes.midnightconfig.enable_diamond_recipes.tooltip": "§lOn§r: Default.\n\n§lOff§r: Diamond equipment can only be obtained through a Diamond Upgrade Smithing Template.",
 
-  "agros-fancy-fixes.midnightconfig.enableBetterenchRecipes": "Enable Crafting BetterEnchantment Essences",
+  "agros-fancy-fixes.midnightconfig.enable_better_enchantment_recipes": "Enable Crafting BetterEnchantment Essences §l(*)",
+  "agros-fancy-fixes.midnightconfig.enable_better_enchantment_recipes.label.tooltip": "Whether certain essences should be craftable.\n\nEssences: §lAgility, Building, Gravity, Photosynthesis, Poison Protection, Reach, Wings",
 
 
   "agros-fancy-fixes.midnightconfig.category.mods": "Mods",
 
   "agros-fancy-fixes.midnightconfig.dnt_divider":"§l} --- Dungeons and Taverns (Nova's Structures) ---  {",
-  "agros-fancy-fixes.midnightconfig.enchant_conversion":"Convert Enchantments to Essence",
+  "agros-fancy-fixes.midnightconfig.enchant_conversion":"Convert Enchantments to Essence §l(*)",
+  "agros-fancy-fixes.midnightconfig.enchant_conversion.label.tooltip":"Allows for DnT enchanted books to be crafted into Better Enchantment's essences.\n\nExample: Enchanted Book (Gravity) -> Essence of Gravity",
   "agros-fancy-fixes.midnightconfig.enchant_conversion.tooltip":"§lOff§r: Disabled.\n\n§lFixed§r: All books, regardless of level, give one Essence.\n\n§lScaling (Static)§r: Books give Essence equal to their level.\n\n§lScaling (Dynamic)§r: Books give one Essence for every two levels.",
+
   "agros-fancy-fixes.midnightconfig.enum.E2EConversion.DISABLED":"Off",
   "agros-fancy-fixes.midnightconfig.enum.E2EConversion.FIXED":"Fixed",
   "agros-fancy-fixes.midnightconfig.enum.E2EConversion.SCALING_STATIC":"Scaling (Static)",
-  "agros-fancy-fixes.midnightconfig.enum.E2EConversion.SCALING_DYNAMIC":"Scaling (Dynamic)",
+  "agros-fancy-fixes.midnightconfig.enum.E2EConversion.SCALING_DYNAMIC":"Scaling (Dynamic)"
 
 
-  "agros-fancy-fixes.midnightconfig.category.info": "Info",
-
-  "agros-fancy-fixes.midnightconfig.info_title": "§7§l} --- { \\\\\\--> Agro's Fancy Fixes <--/// } ---  {",
-  "agros-fancy-fixes.midnightconfig.info_intro": "This page covers information about the configuration of the mod. \nSettings, their values, and their logic, is described below, separated into their respective categories and dividers.",
-
-  "agros-fancy-fixes.midnightconfig.header_general": "§l} --- General ---  {",
-  "agros-fancy-fixes.midnightconfig.general_recipes": "§lRecipes",
-  "agros-fancy-fixes.midnightconfig.general_recipes_title1": "§lEnable Crafting Diamond Equipment",
-  "agros-fancy-fixes.midnightconfig.general_recipes_field1": "Whether diamond equipment should be craftable.\nIf disabled, diamond equipment can only be obtained through BetterEnchanting's Diamond Upgrade Smithing Template.",
-  "agros-fancy-fixes.midnightconfig.general_recipes_title2": "§lEnable BetterEnchantment Essences",
-  "agros-fancy-fixes.midnightconfig.general_recipes_field2": "Whether certain essences should be craftable.\n\nEssences: §lAgility, Building, Gravity, Photosynthesis, Poison Protection, Reach, Wings",
-
-  "agros-fancy-fixes.midnightconfig.header_mods": "§l} --- Mods ---  {",
-  "agros-fancy-fixes.midnightconfig.mods_dnt": "§lDungeons and Taverns",
-  "agros-fancy-fixes.midnightconfig.mods_dnt_title1": "§lConvert Enchantments to Essence",
-  "agros-fancy-fixes.midnightconfig.mods_dnt_field1": "Allows for DnT enchanted books to be crafted into Better Enchantment's essences.\nExample: Enchanted Book (Gravity) -> Essence of Gravity"
-}
+  }
