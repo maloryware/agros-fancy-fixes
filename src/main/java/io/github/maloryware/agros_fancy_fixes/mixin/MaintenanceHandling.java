@@ -18,7 +18,7 @@ public class MaintenanceHandling {
 
     @Inject(method = "checkCanJoin", at = @At("HEAD"), cancellable = true)
     public void isInMaintenanceList(SocketAddress address, GameProfile profile, CallbackInfoReturnable<Text> cir){
-        //stub
+        //stubb
         List<String> allowedMaintenanceProfiles = List.of(
                 "2658711d-889e-48aa-a9ab-dbeaebadda8c",
                 "3659cfeb-9107-48f8-aecc-c0881958260d"
